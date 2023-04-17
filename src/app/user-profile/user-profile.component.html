@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title><h3>Profile:</h3></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div>
+            <b>Username: </b>{{user.Username}}
+        </div>
+        <div>
+            <b>Email: </b>{{user.Email}}
+        </div>
+        <div>
+            <b>Birthday: </b>{{user.Birthday}}
+        </div>
+
+        <form>
+            <h3>Edit your profile</h3>
+            <mat-form-field>
+                <mat-label>Username: </mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="userData.Username"
+                    value="{{userData.Username}}"
+                    placeholder="username"
+                    type="text"
+                    name="Username"
+                    required
+                >
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password: </mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="userData.Password"
+                    value="{{userData.Password}}"
+                    placeholder="password"
+                    type="password"
+                    name="Password"
+                    required
+                >
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email: </mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="userData.Email"
+                    value="{{userData.Email}}"
+                    placeholder="email"
+                    type="email"
+                    name="Email"
+                >
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Birthday: </mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="userData.Birthday"
+                    value="{{userData.Birthday}}"
+                    placeholder="birthday"
+                    type="date"
+                    name="Birthday"
+                >
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="updateAccount()"
+        >
+            Update profile
+        </button>
+        <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteAccount()"
+        >
+            Delete account
+        </button>
+    </mat-card-actions>
+</mat-card>
+<app-favorite-movies />
