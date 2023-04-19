@@ -25,6 +25,10 @@ export class FavoriteMoviesComponent {
     this.getFavoriteMovies();
   }
 
+  /**
+   * Function to fetch favorite movie ids
+   * @function getFavoriteMovies
+   */
   getFavoriteMovies(): void {
     this.favorites = [];
     this.favoriteMovies = [];
@@ -43,10 +47,21 @@ export class FavoriteMoviesComponent {
     });
   }
 
+  /**
+   * Function to check whether movie is favorited
+   * @param id 
+   * @returns boolean
+   * @function isFavorite
+   */
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
   }
 
+  /**
+   * Function to add a movie as favorite
+   * @param id 
+   * @function addToFavorites
+   */
   addToFavorites(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe((res) => {
       this.snackBar.open('Movie has been added as favorite', 'OK', {
@@ -56,6 +71,11 @@ export class FavoriteMoviesComponent {
     });
   }
 
+  /**
+   * Function to remove movie from favorites
+   * @param id 
+   * @function removeFromFavorites
+   */
   removeFromFavorites(id: string): void {
     this.fetchApiData.removeFavoriteMovie(id).subscribe((res) => {
       this.snackBar.open('Movie has been removed from favorites', 'OK', {
@@ -65,6 +85,12 @@ export class FavoriteMoviesComponent {
     });
   }
 
+  /**
+   * Function to open genre details
+   * @param name 
+   * @param description 
+   * @function openGenreCard
+   */
   openGenreCard(name: string, description: string): void {
     this.dialog.open(GenreCardComponent, {
       data: {
@@ -75,6 +101,13 @@ export class FavoriteMoviesComponent {
     });
   }
 
+  /**
+   * Function to open director details
+   * @param name 
+   * @param bio 
+   * @param birthday 
+   * @function openDirectorCard
+   */
   openDirectorCard(name: string, bio: string, birthday: string): void {
     this.dialog.open(DirectorCardComponent, {
       data: {
@@ -86,6 +119,12 @@ export class FavoriteMoviesComponent {
     });
   }
 
+  /**
+   * Function to open movie details
+   * @param title 
+   * @param description 
+   * @function openMovieDetailsCard
+   */
   openMovieDetailsCard(title: string, description: string): void {
     this.dialog.open(MovieDetailsCardComponent, {
       data: {

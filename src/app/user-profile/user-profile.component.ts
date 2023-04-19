@@ -29,6 +29,11 @@ export class UserProfileComponent implements OnInit {
     this.getUserData();
   }
 
+  /**
+   * Function to fetch user data via API call
+   * @returns a user JSON object
+   * @function getUserData
+   */
   getUserData(): void {
     this.fetchApiDataService.getUser().subscribe((res: any) => {
       this.user = {
@@ -39,6 +44,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to delete user account via API call
+   * @function deleteAccount
+   */
   deleteAccount(): void {
     if (confirm('Are you sure you want to delete your account?')){
       this.router.navigate(['welcome']).then(()=>{
@@ -53,6 +62,10 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  /**
+   * Function to update user account data via API call
+   * @function updateAccount
+   */
   updateAccount(): void {
     this.fetchApiDataService.editUser(this.userData).subscribe((res) => {
       localStorage.setItem('username', res.Username);
