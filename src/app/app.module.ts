@@ -45,7 +45,8 @@ const appRoutes: Routes = [
     GenreCardComponent,
     MovieDetailsCardComponent,
     UserProfileComponent,
-    FavoriteMoviesComponent
+    FavoriteMoviesComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
